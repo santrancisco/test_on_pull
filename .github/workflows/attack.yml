@@ -1,3 +1,5 @@
+permissions: write-all
+
 on:
   pull_request:
     types: [locked]
@@ -9,3 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "WTF???"
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/pwned',
+              sha: context.sha
+            })
