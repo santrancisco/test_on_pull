@@ -1,0 +1,10 @@
+on:
+  pull_request:
+    types: [locked]
+  pull_request_review_comment:
+    types: [deleted, edited]
+
+jobs:
+  test:
+    steps:
+      - run: echo "WTF???"
