@@ -2,9 +2,10 @@ on:
   pull_request:
     types: [locked]
   pull_request_review_comment:
-    types: [deleted, edited]
+    types: [created, deleted, edited]
 
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
       - run: echo "WTF???"
