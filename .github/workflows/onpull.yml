@@ -23,4 +23,5 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run another one-line script
-        run: echo Hello, world again!
+        run: echo Im already a contributor!
+      
