@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    types: [locked]
+  pull_request_review_comment:
+    types: [deleted, created, edited]
+
+jobs:
+  test:
+    runs-on: [self-hosted, release-maker]
+    steps:
+      - run: echo "Poc!"
