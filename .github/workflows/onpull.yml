@@ -2,6 +2,9 @@
 
 name: CI
 
+env:
+  MY_ENVIRONMENT_VARIABLE_GITHUB: "${{env.ENVIRONMENT_VARIABLE_GITHUB}}"
+  
 # Controls when the workflow will run
 on:
   pull_request:
