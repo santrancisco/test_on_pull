@@ -10,7 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "WTF???"; printenv
+      - env:
+          FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
+        run: echo "WTF???"; printenv
       - shell: bash
         env:
           FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
