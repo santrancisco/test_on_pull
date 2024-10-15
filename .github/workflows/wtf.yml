@@ -4,9 +4,11 @@ on:
   pull_request:
     types: [locked]
   pull_request_review:
-    types: [edited, dismissed, submitted]
+    types: [created, edited, dismissed, submitted]
   issue_comment:
-    types: [edited, dismissed, submitted]
+    types: [created, edited, dismissed, submitted]
+  pull_request_review_comment:
+    types: [created, edited, dismissed, submitted]
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
     
