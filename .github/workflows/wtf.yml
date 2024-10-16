@@ -4,7 +4,6 @@ env:
   GITHUB_HEAD_REF: github.head_ref
 on:
   pull_request:
-    types: [locked]
   pull_request_review:
     types: [created, edited, dismissed, submitted]
   issue_comment:
