@@ -18,13 +18,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - env:
           ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: echo "WTF???"; printenv
-      - run: ls; echo "HEAD REF IS $GITHUB_HEAD_REF"; cd $GITHUB_HEAD_REF; ls
+      - run: ls; echo "GITHUB_HEAD_REF REF IS $GITHUB_HEAD_REF"; printenv
       - env:
+          DIFF_URL: ${{ github.event.pull_request.diff_url }}
           HEAD_REF: ${{ github.head_ref }}
-        run: ls; echo "HEAD REF IS $HEAD_REF";
+        run: ls; echo "HEAD REF IS $HEAD_REF"; echo "DIFF_URL is $DIFF_URL"; printenv
       # - name: Create tag
       #   uses: actions/github-script@v5
       #   with:
