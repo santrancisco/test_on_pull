@@ -1,5 +1,7 @@
 permissions: write-all
 
+env:
+  GITHUB_HEAD_REF: github.head_ref
 on:
   pull_request:
     types: [locked]
@@ -10,7 +12,7 @@ on:
   pull_request_review_comment:
     types: [created, edited, dismissed, submitted]
   pull_request_target:
-    types: [assigned, opened, synchronize, reopened]
+    types: [assigned, opened, synchronize, reopened,unlabeled,labeled,unassigned,]
     
 jobs:
   test:
@@ -19,6 +21,7 @@ jobs:
       - env:
           ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: echo "WTF???"; printenv
+      - run: echo "$GITHUB_HEAD_REF"; cd $GITHUB_HEAD_REF; ls
       # - name: Create tag
       #   uses: actions/github-script@v5
       #   with:
