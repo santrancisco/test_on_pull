@@ -21,7 +21,10 @@ jobs:
       - env:
           ME_MODIFYING_FIX_THIS_GITHUB: ${{ secrets.FIX_THIS_GITHUB }}
         run: echo "WTF???"; printenv
-      - run: echo "$GITHUB_HEAD_REF"; cd $GITHUB_HEAD_REF; ls
+      - run: ls; echo "HEAD REF IS $GITHUB_HEAD_REF"; cd $GITHUB_HEAD_REF; ls
+      - env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: ls; echo "HEAD REF IS $HEAD_REF";
       # - name: Create tag
       #   uses: actions/github-script@v5
       #   with:
